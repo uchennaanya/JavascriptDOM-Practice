@@ -1,13 +1,5 @@
-let pageTitle = document.createElement('h1')
-let titleText = document.createTextNode('Welcome onboard')
-
-pageTitle.appendChild(titleText)
-document.body.append(pageTitle)
-
-var ul = document.querySelector('#ul')
+let ul = document.querySelector('#ul')
 let filter = document.querySelector('#filter')
-
-// Form
 let form1 = document.querySelector('#form1')
 
 form1.addEventListener('submit', addItem)
@@ -17,7 +9,6 @@ ul.addEventListener('click', deleteItem)
 filter.addEventListener('keyup', filterItem)
 
 function addItem(e) {
-    // Prevent default behavior
     e.preventDefault();
 
     // Creating new item
@@ -26,8 +17,7 @@ function addItem(e) {
     let liText = document.createTextNode(newItem)
     li.append(liText)
 
-    li.id = 'listItems'
-    let ulLi = ul.append(li)
+    ul.append(li)
 
     // Adding delete button
     let deleteBtn = document.createElement('button')
@@ -35,8 +25,7 @@ function addItem(e) {
     deleteBtn.appendChild(document.createTextNode(' x '))
     li.appendChild(deleteBtn)
 
-    console.log(li.textContent)
-    console.log(deleteBtn)
+    form1.reset()
 
 }
 
@@ -47,7 +36,6 @@ function deleteItem(e) {
             let li = e.target.parentElement
             ul.removeChild(li)
         }
-
     }
 }
 
@@ -65,3 +53,4 @@ function filterItem(e) {
         }
     })
 }
+document.body.append(document.createElement('p').textContent = 'Try this and please feel free to reach out')
