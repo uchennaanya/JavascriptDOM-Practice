@@ -5,6 +5,7 @@ pageTitle.appendChild(titleText)
 document.body.append(pageTitle)
 
 var ul = document.querySelector('#ul')
+let filter = document.querySelector('#filter')
 
 // Form
 let form1 = document.querySelector('#form1')
@@ -12,6 +13,8 @@ let form1 = document.querySelector('#form1')
 form1.addEventListener('submit', addItem)
 
 ul.addEventListener('click', deleteItem)
+
+filter.addEventListener('keyup', filterItem)
 
 function addItem(e) {
     // Prevent default behavior
@@ -48,3 +51,17 @@ function deleteItem(e) {
     }
 }
 
+function filterItem(e) {
+    e.preventDefault()
+    let text = e.target.value.toLowerCase()
+    let items = ul.querySelectorAll('li')
+
+    Array.from(items).forEach(function (item) {
+        let itemName = item.firstChild.textContent
+        if (itemName.toLocaleLowerCase().indexOf(text) != -1) {
+            item.style.display = 'block'
+        } else {
+            item.style.display = 'none'
+        }
+    })
+}
