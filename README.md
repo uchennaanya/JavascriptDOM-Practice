@@ -1,4 +1,4 @@
-# Scaffold for social media app with Ruby on Rails
+# Sample codes
 
 > This repo includes sample code generated while I was learning Js DOM
 
