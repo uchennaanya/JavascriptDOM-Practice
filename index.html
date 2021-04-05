@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .add {
+            background-color: aliceblue;
+        }
+
+        .remove {
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body class="">
+    <div id="titls"></div>
+    <ul id="empf">
+        <li id="">Rice</li>
+        <li onclick="changeValue()" title="click to change value"> Beans <em> click to change </em></li>
+        <li>Orange</li>
+        <li>Garri</li>
+        <!-- <button onclick="remove()">delete</button> -->
+    </ul>
+    <form name="search" action="/">
+        <input type="text" name="searchinput">
+        <button type="submit">Serach</button>
+    </form>
+
+    <button id="btn" onclick="changeColor()">Change backgroundColor</button>
+    <script>
+        document.title = "Home Page"
+
+        let listings = document.getElementsByTagName('li')
+        document.title = "Home Page"
+
+        let lists = listings[0]
+
+        console.log(lists)
+        console.log(lists.setAttribute('class', 'myclass'))
+        lists.className = "newclass"
+        lists.classList.add('sec_class')
+
+        console.log(lists.classList.toggle('new'))
+        console.log(lists.getAttribute('class'))
+
+        console.log(lists.className)
+
+        let lst = document.getElementById('empf')
+        console.log("###########################")
+        let bg = document.querySelectorAll("body")
+
+        console.log(bg)
+        console.log(lst.innerText)
+        console.log(lst.getAttribute('class'))
+
+        let ele = document.createElement('li')
+
+        let eleAttr = ele.id = "rice"
+
+        let childEle = document.createTextNode('We are still learning these things')
+
+        lst.appendChild(ele).innerText = "Mangos "
+
+
+
+        let titls = document.querySelector('#titls')
+
+        let pageTile = document.createElement('h1')
+        pageTile.textContent = "See it for yourself."
+
+
+        titls.append(pageTile)
+
+        console.log(pageTile)
+
+        function changeValue() {
+            console.log(listings[1].innerHTML = "Agege bread")
+
+            const aquaman = addEle('h2', 'Keep learning...');
+            titls.append(aquaman)
+        }
+
+        function addEle(tag, text) {
+            const el = document.createElement(tag);
+            el.textContent = text;
+            return el
+        }
+
+        const aquaman = addEle('li', 'Aquaman');
+
+        console.log(aquaman)
+
+        console.log(document.createElement('ul'))
+
+        let ll = document.createElement('h1')
+        let la = document.createTextNode('Melon')
+
+        let rice = document.querySelector('#rice')
+
+        document.body.addEventListener('keypress', e => rice.textContent = `You pressed ${e.code}`)
+
+        rice.addEventListener('dblclick', () => lst.removeChild(ele))
+
+        document.body.style.border = "1px solid black"
+        function doSomething(event) {
+            rice.textContent = `screen: (${event.screenX},${event.screenY}), page: (${event.pageX},${event.pageY}), client: (${event.screenX},${event.screenY})`
+        }
+        document.body.addEventListener('mouseover', doSomething)
+
+    </script>
+    <script src="./form.js"></script>
+
+</body>
+
+</html>
